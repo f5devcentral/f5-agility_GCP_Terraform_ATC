@@ -1,0 +1,21 @@
+{
+  "class": "Telemetry",
+  "My_System": {
+      "class": "Telemetry_System",
+      "systemPoller": {
+          "interval": 60
+      }
+  },
+  "My_Listener": {
+      "class": "Telemetry_Listener",
+      "port": 6514
+  },
+  "My_Consumer": {
+      "class": "Telemetry_Consumer",
+      "type": "Google_Cloud_Monitoring",
+      "projectId": ${project_id},
+      "serviceEmail": ${client_email},
+      "reportInstanceMetadata": false,
+      "useServiceAccountToken": true 
+  }
+}

@@ -1,0 +1,4 @@
+{
+    "url": "/mgmt/shared/cloud-failover/inspect",
+    "method": "GET"
+}
