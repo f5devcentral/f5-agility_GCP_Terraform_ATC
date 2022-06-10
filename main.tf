@@ -86,8 +86,10 @@ module "service_accounts" {
   names      = ["bigip", "backend"]
   project_roles = [
     "${var.project_id}=>roles/logging.logWriter",
-    "${var.project_id}=>roles/monitoring.metricWriter",
-    "${var.project_id}=>roles/monitoring.viewer",
+#     Testing an elevated role to see if certain challenges in the TS Logging are cleaned up
+#    "${var.project_id}=>roles/monitoring.metricWriter",
+#    "${var.project_id}=>roles/monitoring.viewer",
+    "${var.project_id}=>roles/monitoring.editor",
     "${var.project_id}=>roles/compute.viewer"
   ]
   generate_keys = true
