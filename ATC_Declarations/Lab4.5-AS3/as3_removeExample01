@@ -1,0 +1,4 @@
+{
+    "url": "/mgmt/shared/appsvcs/declare/Example01",
+    "method": "DELETE"
+}
