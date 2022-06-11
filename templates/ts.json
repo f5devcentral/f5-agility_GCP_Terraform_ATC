@@ -1,5 +1,10 @@
 {
   "class": "Telemetry",
+  "controls": {
+    "class": "Controls",
+    "logLevel": "info",
+    "debug": false
+},
   "My_System": {
       "class": "Telemetry_System",
       "systemPoller": {
@@ -8,14 +13,16 @@
   },
   "My_Listener": {
       "class": "Telemetry_Listener",
+      "trace": false,
       "port": 6514
   },
   "My_Consumer": {
       "class": "Telemetry_Consumer",
       "type": "Google_Cloud_Monitoring",
+      "trace": false,
       "projectId": ${project_id},
       "serviceEmail": ${client_email},
-      "reportInstanceMetadata": false,
+      "reportInstanceMetadata": true,
       "useServiceAccountToken": true 
   }
 }
