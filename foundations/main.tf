@@ -4,7 +4,7 @@
 # Create loop to populate and create different VPCs and associated objects
 # Pull firewall rules to firewallRules.tf for students to run
 
-# This module has been tested with Terraform 0.12, 0.13 and 0.14.
+# This module has been tested with Terraform 1.20.
 terraform {
   required_version = "> 0.13"
 }
@@ -69,8 +69,7 @@ module "internal" {
   ]
 }
 
-# need to define source var.admin_source_cidrs as 0.0.0.0/0 because we are going to use strong passwords 
-## and/or ssh-key deployments
+# need to define source var.admin_source_cidrs as 0.0.0.0/0 because we strong passwords 
 resource "google_compute_firewall" "admin_mgmt" {
   count         = var.numberOfStudents
   project       = var.project_id
@@ -79,7 +78,6 @@ resource "google_compute_firewall" "admin_mgmt" {
   description   = format("Allow external admin access on mgmt (student%s)", count.index)
   direction     = "INGRESS"
   source_ranges = var.admin_source_cidrs
-  #  target_service_accounts = [module.sa.emails["bigip"]]
   allow {
     protocol = "tcp"
     ports = [
@@ -96,9 +94,5 @@ resource "google_project_service" "apis" {
   for_each = toset(var.apis)
   project = var.project_id
   service = each.value
-  # TODO: @jtylershaw @El-Coder @snowblind-
-  # In a shared project, destroying these resources shouldn't disable the GCP
-  # APIs in case another user/team is using them. Change to true if this isn't a
-  # concern.
   disable_on_destroy = false
 }
