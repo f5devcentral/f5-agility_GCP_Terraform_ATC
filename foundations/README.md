@@ -3,13 +3,17 @@
 This folder contains the foundational lab setup that creates VPCs for each student;
 it is not intended to be executed by Agility lab administrators only.
 
-Student count is a zero based array, so reserve 0 for the lab leads/presenter and add 1 to the student count.
+Student count is a zero based array, so reserve 0- 5 for the lab leads/presenter and add 6 to the student count.
+
+Lab administrators should use a Terraform cloud workspace attached to the remote github repository so that this can be a shared responsibility with one singular TF state/lock file.
+
+Within the TF Cloud workspace, make sure that in the settings it is configured to use the foundations directory as the Working Directory.
 
 For information on how to use TF Cloud with Google and how to get your credentials into TF CLoud as a variable, start here - https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/getting_started 
 
 Terraform cloud variables needed:
 
-listOfNames HCL ["bf*****@gmail.com","jt*****@gmail.com","ph*****@@gmail.com"]
+listOfNames HCL ["bf*****@gmail.com","jt*****@gmail.com","ph*****@gmail.com"]
 
 project_id STRING 
 
