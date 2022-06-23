@@ -20,7 +20,7 @@ This folder contains the lab setup that creates VPCs and other objects for each 
 - **External process** - Contact any attendees via email to request an actual [Google account](#note-about-google-accounts) so that they may complete the lab.
 
 ## Terraform Cloud Workspace
-As multiple Lab staff members will need to assist and run this in order to add students, it is crucial to configure a shared workspace that utilizes one shared lock/state file.  This makes ramp up and down easier.
+As multiple Lab staff members will need to assist and run this in order to add students, it is crucial to shared your TF Cloud Org.  This ensures that there is one shared lock/state file and makes ramp up and down tasks easier.
 
 - If you do not already have a Terraform Cloud account, create one.
 - Create a Workspace in Terraform cloud that uses this remote GitHub repository.  
