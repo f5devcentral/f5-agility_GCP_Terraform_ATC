@@ -4,10 +4,10 @@ This folder contains the foundational lab setup that creates VPCs and other obje
 
 ## General Usage and Workflow
 - **F5 Internal process** - Use ServiceNow system to request a New Project within our account that allows external users.
-- Set up Terraform Cloud Workspace. More instructions on this below.
+- Set up Terraform Cloud Workspace. More instructions on this [below](#terraform-cloud-workspace).
 - Perform a run configured for all Lab staff as students.
 - Once registration numbers are know, perform a run with the student number plus staff.  Verify quotas are correct, or make requests to increase as needed.  **Do not add student emails to this run.**
-- Place student email addresses in the proper variable and perform a run.  When you run this, observe the reasons for the failure. Failures will hppen due to quota limits OR the email address not being part of a Google account. 
+- Place student email addresses in the proper variable and perform a run.  When you run this, observe the reasons for the failure. Failures will happen due to quota limits OR the email address not being part of a Google account. 
   - If Quota limits hit, request increases and run again once the limits are increased.
   - Take note of all email accounts that are not Google accounts and remove them from the variable.
 - **External process** - Contact any attendees via email to request an actual Google account so that they may complete the lab.
