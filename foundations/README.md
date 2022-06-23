@@ -58,7 +58,6 @@ Within the shared workspace, create the following variables:
     - For information on how to use TF Cloud with Google and how to get your credentials into TF CLoud as a variable, [start here](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/getting_started)
 
 ### Note about Google Accounts
-**IMPORTANT Procedural Note**
-
+**IMPORTANT Procedural Note**  
 For students who show up without Google Accounts already established before the course, identify them and place them in a breakout room with a lab assistant to add them to the listOfNames variable while the MC and presenter do their tasks.  Students should check that they can get to [Google cloud console](https://console.cloud.google.com/iam-admin/quotas/qirs?project=f5-gcs-4261-sales-agility2022) 
 **Update the link for the project ID in use**
