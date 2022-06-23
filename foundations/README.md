@@ -1,6 +1,6 @@
 # Foundations
 
-This folder contains the foundational lab setup that creates VPCs and other objects for each student. It is not intended to be executed by students of the lab as elevated permissions in the GCP Project are needed.
+This folder contains the lab setup that creates VPCs and other objects for each student. It is not intended to be executed by students of the lab as elevated permissions in the GCP Project are needed.
 
 ## General Usage and Workflow
 - **F5 Internal process** - Use ServiceNow system to request a New Project within our account that allows external users.
@@ -23,22 +23,11 @@ As multiple Lab staff members will need to assist and run this in order to add s
 
 ## GCP tasks
 
-Create a new project within GCP for use with this lab for Agility.  This is needed as we cannot add external users to the F5 SE projects in the regions or in UDF.
-
-The initial run of this should be set to accomodate the team that is running the lab for full testing.
-
-
-Student count is a zero based array, so reserve 0- 5 for the lab leads/presenter and add 6 to the student count.
-
-Within the Google project ensure that the quotas for objects are set properly for the student and lab administrator count.
-VPC networks and subnetworks = (# Students + 6) * 3
-IAM Service account = (# Students + 6) * 2
-
-Verify the project quota levels in the console --> IAM & Admin --> Quotas
-
-Within the TF Cloud workspace, make sure that in the settings it is configured to use the foundations directory as the Working Directory.
-
-For information on how to use TF Cloud with Google and how to get your credentials into TF CLoud as a variable, [start here](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/getting_started)
+- Create a new project within GCP for use with this lab for Agility.  This is needed as we cannot add external users to the F5 SE projects in the regions or in UDF.
+- Verify the project quota levels in the console --> IAM & Admin --> Quotas
+  - Within the Google project ensure that the quotas for objects are set properly for the student and lab administrator count.
+    - VPC networks and subnetworks = (# Students + 6) * 3
+    - IAM Service account = (# Students + 6) * 2
 
 ## Terraform Cloud Variables 
 
@@ -49,8 +38,11 @@ Within the shared workspace, create the following variables:
 - project_id STRING 
 
 - numberOfStudents 
+  - Student count is a zero based array, so reserve 0-(# of lab staff) for the lab leads/presenter.
+  - Once registration is complete increase this to accommodate lab staff and the student count.
 
 - GOOGLE_CREDENTIALS Sensitive - write only
+  - For information on how to use TF Cloud with Google and how to get your credentials into TF CLoud as a variable, [start here](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/getting_started)
 
 ### Note about Google Accounts
 For students who show up without google accounts already established before the course, identify them and place them in a breakout room with a lab assistant to add them to the listOfNames variable while the MC and presenter do their tasks.  Students should check that they can get to [Google cloud console](https://console.cloud.google.com/iam-admin/quotas/qirs?project=f5-gcs-4261-sales-agility2022) 
