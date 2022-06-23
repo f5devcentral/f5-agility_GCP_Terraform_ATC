@@ -1,7 +1,30 @@
 # Foundations
 
-This folder contains the foundational lab setup that creates VPCs for each student;
-it is not intended to be executed by Agility lab administrators only.
+This folder contains the foundational lab setup that creates VPCs and other objects for each student. It is not intended to be executed by students of the lab as elevated permissions in the GCP Project are needed.
+
+## General Usage and Workflow
+- **F5 Internal process** - Use ServiceNow system to request a New Project within our account that allows external users.
+- Set up Terraform Cloud Workspace. More instructions on this below.
+- Perform a run configured for all Lab staff as students.
+- Once registration numbers are know, perform a run with the student number plus staff.  Verify quotas are correct, or make requests to increase as needed.  **Do not add student emails to this run.**
+- Place student email addresses in the proper variable and perform a run.  When you run this, observe the reasons for the failure. Failures will hppen due to quota limits OR the email address not being part of a Google account. 
+  - If Quota limits hit, request increases and run again once the limits are increased.
+  - Take note of all email accounts that are not Google accounts and remove them from the variable.
+- **External process** - Contact any attendees via email to request an actual Google account so that they may complete the lab.
+
+
+## Terraform Cloud Workspace
+As multiple Lab staff members will need to assist and run this in order to add students, it is crucial to configure a shared workspace that utilizes one shared lock/state file.  This makes ramp up and down easier.
+
+- Create a Workspace in Terraform cloud that uses the remote GitHub repository.  
+
+
+## GCP tasks
+
+Create a new project within GCP for use with this lab for Agility.  This is needed as we cannot add external users to the F5 SE projects in the regions or in UDF.
+
+The initial run of this should be set to accomodate the team that is running the lab for full testing.
+
 
 Student count is a zero based array, so reserve 0- 5 for the lab leads/presenter and add 6 to the student count.
 
@@ -11,24 +34,23 @@ IAM Service account = (# Students + 6) * 2
 
 Verify the project quota levels in the console --> IAM & Admin --> Quotas
 
-Lab administrators should use a Terraform cloud workspace attached to the remote github repository so that this can be a shared responsibility with one singular TF state/lock file.  This also makes the ramp up and ramp down for the event a lot easier.
 
-For students who show up without google accounts already established before the course, identify them and place them in a breakout room with a lab assistant to add them to the listOfNames variable while the MC and presenter do their tasks.  Students should check that they can get to https://console.cloud.google.com/iam-admin/quotas/qirs?project=f5-gcs-4261-sales-agility2022 **Update for the project ID in use**
+
+For students who show up without google accounts already established before the course, identify them and place them in a breakout room with a lab assistant to add them to the listOfNames variable while the MC and presenter do their tasks.  Students should check that they can get to [Google cloud console](https://console.cloud.google.com/iam-admin/quotas/qirs?project=f5-gcs-4261-sales-agility2022) 
+**Update the link for the project ID in use**
 
 Within the TF Cloud workspace, make sure that in the settings it is configured to use the foundations directory as the Working Directory.
 
-For information on how to use TF Cloud with Google and how to get your credentials into TF CLoud as a variable, start here - https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/getting_started 
+For information on how to use TF Cloud with Google and how to get your credentials into TF CLoud as a variable, [start here](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/getting_started)
 
-Terraform cloud variables needed:
+## Terraform Cloud Variables 
 
-listOfNames HCL ["bf*****@gmail.com","jt*****@gmail.com","ph*****@gmail.com"]
+Within the shared workspace, create the following variables:
 
-project_id STRING 
+- listOfNames HCL ["bf*****@gmail.com","jt*****@gmail.com","ph*****@gmail.com"]
 
-admin_source_cidrs HCL ["0.0.0.0/0"]
+- project_id STRING 
 
-region STRING us-east1
+- numberOfStudents 
 
-numberOfStudents 
-
-GOOGLE_CREDENTIALS Sensitive - write only
+- GOOGLE_CREDENTIALS Sensitive - write only
