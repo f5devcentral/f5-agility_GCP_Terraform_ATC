@@ -37,14 +37,27 @@ As multiple Lab staff members will need to assist and run this in order to add s
 
 ## Terraform Cloud Variables 
 Within the shared workspace, create the following variables:
-- listOfNames HCL ["bf*****@gmail.com","jt*****@gmail.com","ph*****@gmail.com"]
-- project_id STRING 
-- numberOfStudents 
-  - Student count is a zero based array, so reserve 0-(# of lab staff) for the lab leads/presenter.
-  - Once registration is complete increase this to accommodate lab staff and the student count.
-- GOOGLE_CREDENTIALS Sensitive - write only
-  - For information on how to use TF Cloud with Google and how to get your credentials into TF CLoud as a variable, [start here](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/getting_started)
+- Key - listOfNames 
+  - Category - Terraform Variable
+  - Check the HCL box
+  - Value - ["account1@gmail.com","account2@customerdomain.com","account3@othercustomerdomain.com"]
+  - Variable Description - `["b***b@gmail.com", "jtyl***w@gmail.com","car***rs@gmail.com"]`
+- Key - project_id 
+  - Category - Terraform Variable
+  - Note, this value is all lower case like `f5-gcs-4261-sales-agility2022`
+  - Variable Description - `The GCP project identifier to use for Agility lab.`
+- Key - numberOfStudents 
+  - Category - Terraform Variable
+  - Value - 7
+    - This is an arbitrary number, use one that reflects guidance in the steps above.
+  - Variable Description - `Student count is a zero based array, so reserve 0-(# of lab staff) for the lab leads/presenter and add student count per guidance above.`
+- Key - GOOGLE_CREDENTIALS 
+  - Category - Environment Variable
+  - Check the Sentive box.
+  - Variable Description - `This is you Google Cloud Auth JSON token on one line, no linefeeds or carriage returns.`
+    - For information on how to use TF Cloud with Google and how to get your credentials into TF CLoud as a variable, [start here](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/getting_started)
 
 ### Note about Google Accounts
-For students who show up without google accounts already established before the course, identify them and place them in a breakout room with a lab assistant to add them to the listOfNames variable while the MC and presenter do their tasks.  Students should check that they can get to [Google cloud console](https://console.cloud.google.com/iam-admin/quotas/qirs?project=f5-gcs-4261-sales-agility2022) 
+**IMPORTANT Procedural note**
+For students who show up without Google Accounts already established before the course, identify them and place them in a breakout room with a lab assistant to add them to the listOfNames variable while the MC and presenter do their tasks.  Students should check that they can get to [Google cloud console](https://console.cloud.google.com/iam-admin/quotas/qirs?project=f5-gcs-4261-sales-agility2022) 
 **Update the link for the project ID in use**
