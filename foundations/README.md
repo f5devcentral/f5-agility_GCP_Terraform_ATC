@@ -2,6 +2,12 @@
 
 This folder contains the lab setup that creates VPCs and other objects for each student. It is not intended to be executed by students of the lab as elevated permissions in the GCP Project are needed.
 
+# Prerequisites
+- [Github account](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home)
+- [Terraform Cloud account](https://app.terraform.io/public/signup/account)
+- [Access to VSCODE](https://code.visualstudio.com/download)
+- [Google Cloud SDK](https://cloud.google.com/sdk/docs/install)
+
 ## General Usage and Workflow
 - **F5 Internal process** - Use ServiceNow system to request a New Project within our account that allows external users.
 - Set up Terraform Cloud Workspace. More instructions on this [below](#terraform-cloud-workspace).
