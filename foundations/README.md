@@ -10,14 +10,16 @@ This folder contains the foundational lab setup that creates VPCs and other obje
 - Place student email addresses in the proper variable and perform a run.  When you run this, observe the reasons for the failure. Failures will happen due to quota limits OR the email address not being part of a Google account. 
   - If Quota limits hit, request increases and run again once the limits are increased.
   - Take note of all email accounts that are not Google accounts and remove them from the variable.
-- **External process** - Contact any attendees via email to request an actual Google account so that they may complete the lab.
-
+- **External process** - Contact any attendees via email to request an actual [Google account](#note-about-google-accounts) so that they may complete the lab.
 
 ## Terraform Cloud Workspace
 As multiple Lab staff members will need to assist and run this in order to add students, it is crucial to configure a shared workspace that utilizes one shared lock/state file.  This makes ramp up and down easier.
 
-- Create a Workspace in Terraform cloud that uses the remote GitHub repository.  
-
+- If you do not already have a Terraform Cloud account, create one.
+- Create a Workspace in Terraform cloud that uses this remote GitHub repository.  
+  - Use the [variables listed below](#terraform-cloud-variables).
+  - Within the Workspace settings, set the Terraform Working Directory to /foundations/ .
+  - Invite other lab staff to your Terraform Cloud Org.  **Note you can only invite 5 users into the free version.** This allows those Lab Staff members to edit and perform runs in this workspace.
 
 ## GCP tasks
 
@@ -34,11 +36,6 @@ IAM Service account = (# Students + 6) * 2
 
 Verify the project quota levels in the console --> IAM & Admin --> Quotas
 
-
-
-For students who show up without google accounts already established before the course, identify them and place them in a breakout room with a lab assistant to add them to the listOfNames variable while the MC and presenter do their tasks.  Students should check that they can get to [Google cloud console](https://console.cloud.google.com/iam-admin/quotas/qirs?project=f5-gcs-4261-sales-agility2022) 
-**Update the link for the project ID in use**
-
 Within the TF Cloud workspace, make sure that in the settings it is configured to use the foundations directory as the Working Directory.
 
 For information on how to use TF Cloud with Google and how to get your credentials into TF CLoud as a variable, [start here](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/getting_started)
@@ -54,3 +51,7 @@ Within the shared workspace, create the following variables:
 - numberOfStudents 
 
 - GOOGLE_CREDENTIALS Sensitive - write only
+
+### Note about Google Accounts
+For students who show up without google accounts already established before the course, identify them and place them in a breakout room with a lab assistant to add them to the listOfNames variable while the MC and presenter do their tasks.  Students should check that they can get to [Google cloud console](https://console.cloud.google.com/iam-admin/quotas/qirs?project=f5-gcs-4261-sales-agility2022) 
+**Update the link for the project ID in use**
