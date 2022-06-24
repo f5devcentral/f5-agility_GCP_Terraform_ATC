@@ -5,6 +5,8 @@ This folder contains the lab setup that creates VPCs and other objects for each 
 # Prerequisites
 - [Github account](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home)
 - [Terraform Cloud account](https://app.terraform.io/public/signup/account)
+- Google Account
+  - Lab staff need to not only have their corp email set up, but a private Google Account to test as a student would.
 - [Access to VSCODE](https://code.visualstudio.com/download)
 - [Google Cloud SDK](https://cloud.google.com/sdk/docs/install)
 - UDF Blueprint
