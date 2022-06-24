@@ -1,6 +1,6 @@
 # Foundations
 
-This folder contains the lab setup that creates VPCs and other objects for each student. It is not intended to be executed by students of the lab as elevated permissions in the GCP Project are needed.
+This folder contains the lab setup that creates VPCs and other objects for each student. It is not intended to be executed by students of the lab as elevated permissions in the Google Cloud Project are needed.
 
 # Prerequisites
 - [Github account](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home)
@@ -28,8 +28,8 @@ As multiple Lab staff members will need to assist and run this in order to add s
   - Within the Workspace settings, set the Terraform Working Directory to /foundations/ .
   - Invite other lab staff to your Terraform Cloud Org.  **Note you can only invite 5 users into the free version.** This allows those Lab Staff members to edit and perform runs in this workspace.
 
-## GCP tasks
-- Create a new project within GCP for use with this lab for Agility.  This is needed as we cannot add external users to the F5 SE projects in the regions or in UDF.
+## Google Cloud tasks
+- Create a new project within Google Cloud for use with this lab for Agility.  This is needed as we cannot add external users to the F5 SE projects in the regions or in UDF.
 - Verify the project quota levels in the console --> IAM & Admin --> Quotas
   - Within the Google project ensure that the quotas for objects are set properly for the student and lab administrator count.
     - VPC networks and subnetworks = (# Students + 6) * 3
@@ -45,7 +45,7 @@ Within the shared workspace, create the following variables:
 - Key - project_id 
   - Category - Terraform Variable
   - Note, this value is all lower case like `f5-gcs-4261-sales-agility2022`
-  - Variable Description - `The GCP project identifier to use for Agility lab.`
+  - Variable Description - `The Google Cloud project identifier to use for Agility lab.`
 - Key - numberOfStudents 
   - Category - Terraform Variable
   - Value - 7
